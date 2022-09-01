@@ -1,7 +1,10 @@
 import org.testng.annotations.Test;
+import lombok.extern.slf4j.Slf4j;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.assertj.core.api.Assertions.assertThat;
+
+@Slf4j
 
 public class WikiTest {
 
@@ -13,8 +16,8 @@ public class WikiTest {
         open("https://uk.wikipedia.org/");
         wikiHomePage.clickInSearchInput().enterText("Доберман");
 
-        String actualNamePage = wikiSearchPage.getNamePageText();
-        String expectedNamePage = "Доберман[ред. | ред. код]";
+        String actualNamePage = wikiSearchPage.getNamePageText().replaceAll("\\s*\\[[^]]*]\\s*", "");
+        String expectedNamePage = "Доберман";
 
         assertThat(actualNamePage).as("The Page is not searched")
                 .isEqualTo(expectedNamePage);
