@@ -1,6 +1,6 @@
 package AQA.Shef;
 
-public class Cucumber extends Vegetables{
+public class Cucumber extends Vegetables {
 
     public Cucumber(int count, int kcal) {
         super.count = count;
