@@ -1,3 +1,5 @@
+import Old.WikiHomePage;
+import Old.WikiSearchPage;
 import org.testng.annotations.Test;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,6 +13,7 @@ public class WikiTest {
     private final WikiHomePage wikiHomePage = new WikiHomePage();
     private final WikiSearchPage wikiSearchPage = new WikiSearchPage();
 
+
     @Test
     public void verifyWiki() {
         open("https://uk.wikipedia.org/");
@@ -21,6 +24,7 @@ public class WikiTest {
 
         assertThat(actualNamePage).as("The Page is not searched")
                 .isEqualTo(expectedNamePage);
+        log.info("wtf11111111");
     }
 
 }
