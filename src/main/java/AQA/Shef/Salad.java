@@ -2,12 +2,12 @@ package AQA.Shef;
 
 import com.google.common.collect.Lists;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
-public class Salad extends Vegetables {
+public class Salad {
 
-    private Onion onion = new Onion(12, 50);
+    private Onion onion = new Onion(12,50);
     private Tomato tomato = new Tomato(11, 150);
     private Cucumber cucumber = new Cucumber(2, 80);
     private Latucce latucce = new Latucce(10, 70);
@@ -19,7 +19,7 @@ public class Salad extends Vegetables {
     public List<String> ingredientsName() {
 
         return ingredients().stream()
-                .map(el -> el.nameVegetable())
+                .map(el->el.nameVegetable())
                 .collect(Collectors.toList());
     }
 
@@ -35,8 +35,4 @@ public class Salad extends Vegetables {
         return onion.getKcal() * onion.count + tomato.getCount() * tomato.getKcal() + cucumber.getCount() * cucumber.getKcal() + latucce.getCount() * latucce.getKcal();
     }
 
-    @Override
-    public String nameVegetable() {
-        return null;
-    }
 }
