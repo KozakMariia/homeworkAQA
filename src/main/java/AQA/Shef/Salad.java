@@ -1,5 +1,6 @@
 package AQA.Shef;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,20 @@ public class Salad {
         return ingredients.stream()
                 .mapToInt(el -> el.getCount() * el.getKcal())
                 .sum();
+    }
+
+    public List<String> ingredientsWithD() {
+        return ingredients.stream()
+                .filter(el -> el.getKcal() < 100 && el.getKcal() > 20)
+                .map(el -> el.nameVegetable())
+                .collect(Collectors.toList());
+    }
+
+    public List<String> sortSalad() {
+        return ingredients.stream()
+                .sorted(Comparator.comparingInt(el -> el.getKcal()))
+                .map(el -> el.nameVegetable())
+                .collect(Collectors.toList());
     }
 
 }

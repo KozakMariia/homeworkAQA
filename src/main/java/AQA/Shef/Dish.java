@@ -23,18 +23,8 @@ public class Dish {
 
         Salad salad = new Salad(ingredients);
 
-        List<String> sortSalad = ingredients.stream()
-                .sorted(Comparator.comparingInt(el -> el.getKcal()))
-                .map(el -> el.nameVegetable())
-                .collect(Collectors.toList());
-
-        List<String> ingredientsWithD = ingredients.stream()
-                .filter(el -> el.getKcal() < 100 && el.getKcal() > 20)
-                .map(el -> el.nameVegetable())
-                .collect(Collectors.toList());
-
-        System.out.println(sortSalad);
-        System.out.println(ingredientsWithD);
+        System.out.println(salad.sortSalad());
+        System.out.println(salad.ingredientsWithD());
         System.out.println(salad.ingredientsName());
         System.out.println(salad.saladKcal());
     }
