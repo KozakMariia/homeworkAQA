@@ -1,29 +1,25 @@
 package AQA.Record;
 
-import java.util.ArrayList;
-import java.util.List;
+/*
+Звукозапись. Определить иерархию музыкальных композиций. Записать на диск сборку.
+Посчитать продолжительность. Провести перестановку композиций диска на основе одного из параметров.
+Найти композицию, соответствующую заданному диапазону параметров.*/
 
 public class Disk {
 
     public static void main(String[] args) {
 
-        Pop pop = new Pop(1.23f, "KATE");
-        Rock rock = new Rock(4.12f, "Nom");
-        Lyrics lyrics = new Lyrics(3.57f, "Amanda");
-        Classical classical = new Classical(6.01f, "Bah");
+        Pop pop = new Pop(1.23, "KATE");
+        Rock rock = new Rock(4.12, "Nom");
+        Lyrics lyrics = new Lyrics(3.57, "Amanda");
+        Classical classical = new Classical(6.01, "Bah");
 
-        List<SongInfo> songs = new ArrayList<>();
-        songs.add(pop);
-        songs.add(rock);
-        songs.add(lyrics);
-        songs.add(classical);
-
-        CollectionSongs collectionSongs = new CollectionSongs(songs);
-
-
+        CollectionSongs collectionSongs = new CollectionSongs(pop, rock, lyrics, classical);
 
         System.out.println(collectionSongs.durationSum());
         System.out.println(collectionSongs.sortedSongs());
+        System.out.println(collectionSongs.songsWithD());
+        System.out.println(collectionSongs.songsNames());
     }
 
 }

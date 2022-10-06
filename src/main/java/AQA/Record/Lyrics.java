@@ -2,7 +2,7 @@ package AQA.Record;
 
 public class Lyrics extends SongInfo {
 
-    public Lyrics (float duration, String author) {
+    public Lyrics (double duration, String author) {
         super.duration = duration;
         super.author = author;
     }

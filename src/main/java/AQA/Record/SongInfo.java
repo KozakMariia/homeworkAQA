@@ -2,10 +2,10 @@ package AQA.Record;
 
 public abstract class SongInfo {
 
-    protected float duration;
+    protected double duration;
     protected String author;
 
-    public float getDuration() {
+    public double getDuration() {
         return duration;
     }
 
