@@ -6,15 +6,20 @@ import java.util.stream.Collectors;
 
 public class Salad {
 
-    private List<Vegetables> ingredients;
+    private final List<Vegetables> ingredients;
 
     public Salad(List<Vegetables> ingredients) {
         this.ingredients = ingredients;
     }
 
+    public Salad(Vegetables...ingredients2) {
+           this.ingredients = List.of(ingredients2);
+    }
+
     public List<String> ingredientsName() {
         return ingredients.stream()
                 .map(el -> el.nameVegetable())
+                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -35,6 +40,7 @@ public class Salad {
         return ingredients.stream()
                 .sorted(Comparator.comparingInt(el -> el.getKcal()))
                 .map(el -> el.nameVegetable())
+                .distinct()
                 .collect(Collectors.toList());
     }
 
