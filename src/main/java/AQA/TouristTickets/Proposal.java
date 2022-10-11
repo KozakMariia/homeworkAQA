@@ -13,18 +13,30 @@ public class Proposal {
     }
 
     public List<String> collectionTickets() {
-        List<String> collectionTickets = ticketInfo.stream()
+        return ticketInfo.stream()
                 .map(el -> el.ticketName())
                 .collect(Collectors.toList());
-        return collectionTickets;
     }
 
-    public List<String> sortedTickets() {
-        List<String> sortedTickets = ticketInfo.stream()
+    public List<String> getSortedTicketsByDay() {
+        return ticketInfo.stream()
                 .sorted(Comparator.comparingInt(TicketInfo::getDay))
                 .map(el -> el.ticketName())
                 .collect(Collectors.toList());
-        return sortedTickets;
+    }
+
+    public List<String> getSortedTicketsByEat() {
+        return ticketInfo.stream()
+                .sorted(Comparator.comparingInt(TicketInfo::getEatCount))
+                .map(el -> el.ticketName())
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getFilterByVehicle(String nameVehicle) {
+        return ticketInfo.stream()
+                .filter(el->el.getVehicle().equals(nameVehicle))
+                .map(el->el.getVehicle()) //вивести всю інфу про відфільтровані обєкти
+                .collect(Collectors.toList());
     }
 
 }
