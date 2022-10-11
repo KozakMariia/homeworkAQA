@@ -21,10 +21,9 @@ public class Tariff {
     }
 
     public List<String> tariffName() {
-        List<String> tariffName = connectionInfo.stream()
+        return connectionInfo.stream()
                 .map(el -> el.tariff())
                 .collect(Collectors.toList());
-        return tariffName;
     }
 
     public int clientSum() {
@@ -34,19 +33,24 @@ public class Tariff {
     }
 
     public List<String> tariffSorted() {
-        List<String> tariffs = connectionInfo.stream()
+        return connectionInfo.stream()
                 .sorted(Comparator.comparingDouble(ConnectionInfo::getPrice))
                 .map(el -> el.tariff())
                 .collect(Collectors.toList());
-        return tariffs;
     }
 
-    public List<String> tariffD() {
-        List<String> tariffD = connectionInfo.stream()
-                .filter(el -> el.getPrice() > 15 && el.getPrice() < 20)
+    public List<String> tariffRange(int firstRangeValue, int lastRangeValue) {
+        return connectionInfo.stream()
+                .filter(el -> el.getPrice() > firstRangeValue && el.getPrice() < lastRangeValue)
                 .map(el -> el.tariff())
                 .collect(Collectors.toList());
-        return tariffD;
+    }
+
+    public List<String> tariffRange(String name) {
+        return connectionInfo.stream()
+                .filter(el -> el.tariff().startsWith(name))
+                .map(el->el.tariff())
+                .collect(Collectors.toList());
     }
 
 }

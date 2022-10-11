@@ -1,7 +1,5 @@
 package AQA.MobileConnection;
 
-import org.checkerframework.checker.units.qual.C;
-
 public class MobileConnection {
 
     public static void main (String arg[]) {
@@ -14,7 +12,7 @@ public class MobileConnection {
         Tariff tariff = new Tariff(newYear, classic, family, halloween);
 
         System.out.println(tariff.tariffName());
-        System.out.println(tariff.tariffD());
+        System.out.println(tariff.tariffRange(15, 20));
         System.out.println(tariff.tariffSorted());
         System.out.println(tariff.clientSum());
     }
