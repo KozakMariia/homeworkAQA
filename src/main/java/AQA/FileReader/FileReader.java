@@ -25,6 +25,7 @@ public class FileReader {
 
     public String fileContents;
 
+
     public String scanFile() {
         String filePath = "/Users/m.kozak/JavaHistory.txt";
 
@@ -86,13 +87,13 @@ public class FileReader {
     }
 
     public String getLastWord() {
-        return Arrays.toString(fileContents.substring(fileContents.lastIndexOf(" ") + 1).split("[-#$%^&!?,.0-9\\s]+"));
+        return Arrays.toString(fileContents.substring(fileContents.lastIndexOf(" ") + 1)
+                .split("[-#$%^&!?,.0-9\\s]+"));
     }
 
-    public boolean getFindWord() {
-        Arrays.stream(fileContents.split("[-#$%^&!?,.0-9\\s]+"))
-                .equals("2006 год");
-        return true;
+    public boolean isWordFound(String searchedText) {
+        return Arrays.stream(fileContents.split("[-#$%^&!?,.0-9\\s]+"))
+                .equals(searchedText);
     }
 
 }

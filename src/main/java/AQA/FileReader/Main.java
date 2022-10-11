@@ -16,7 +16,7 @@ public class Main {
         System.out.println(fileReader.getAnyWord());
         System.out.println(fileReader.getFirstWord());
         System.out.println(fileReader.getLastWord());
-        System.out.println(fileReader.getFindWord());
+        System.out.println(fileReader.isWordFound("2006 год"));
     }
 
 }
