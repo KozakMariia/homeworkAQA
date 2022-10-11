@@ -19,27 +19,24 @@ public class CollectionSongs {
     }
 
     public List<String> sortedSongs() {
-        List<String> collect = songs.stream()
+        return songs.stream()
                 .sorted(Comparator.comparingDouble(SongInfo::getDuration))
                 .map(el -> el.songName())
                 .collect(Collectors.toList());
-        return collect;
     }
 
-    public List<String> songsWithDiapazon() {
-        List<String> songD = songs.stream()
-                .filter(el -> el.getDuration() > 2 && el.getDuration() < 4)
+    public List<String> songsWithDiapazon(int firstNumber, int lastNumber) {
+        return songs.stream()
+                .filter(el -> el.getDuration() > firstNumber && el.getDuration() < lastNumber)
                 .map(el->el.songName())
                 .collect(Collectors.toList());
-        return songD;
     }
 
     public List<String> songsNames() {
-        List<String> songName = songs.stream()
+        return songs.stream()
                 .map(el->el.songName())
                 .distinct()
                 .collect(Collectors.toList());
-        return songName;
     }
 
 }

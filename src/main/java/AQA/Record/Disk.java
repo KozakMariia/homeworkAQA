@@ -19,7 +19,7 @@ public class Disk {
 
         System.out.println(collectionSongs.durationSum());
         System.out.println(collectionSongs.sortedSongs());
-        System.out.println(collectionSongs.songsWithDiapazon());
+        System.out.println(collectionSongs.songsWithDiapazon(2, 4));
         System.out.println(collectionSongs.songsNames());
     }
 
