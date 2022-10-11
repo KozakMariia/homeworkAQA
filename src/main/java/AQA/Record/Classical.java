@@ -9,8 +9,7 @@ public class Classical extends SongInfo {
 
     @Override
     public String songName() {
-        String songName = "Winter";
-        return songName;
+        return "Winter";
     }
 
 }

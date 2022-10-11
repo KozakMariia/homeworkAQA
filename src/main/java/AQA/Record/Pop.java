@@ -9,8 +9,7 @@ public class Pop extends SongInfo {
 
     @Override
     public String songName() {
-        String songName = "Sky";
-        return songName;
+        return "Sky";
     }
 
 }

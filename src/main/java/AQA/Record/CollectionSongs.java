@@ -26,7 +26,7 @@ public class CollectionSongs {
         return collect;
     }
 
-    public List<String> songsWithD() {
+    public List<String> songsWithDiapazon() {
         List<String> songD = songs.stream()
                 .filter(el -> el.getDuration() > 2 && el.getDuration() < 4)
                 .map(el->el.songName())
@@ -37,6 +37,7 @@ public class CollectionSongs {
     public List<String> songsNames() {
         List<String> songName = songs.stream()
                 .map(el->el.songName())
+                .distinct()
                 .collect(Collectors.toList());
         return songName;
     }
