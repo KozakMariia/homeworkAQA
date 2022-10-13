@@ -2,7 +2,6 @@ package AQA.Animal;
 
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,13 +25,20 @@ public class Zoo {
                 .collect(Collectors.toList());
     }
 
-
     public void addAnimal(Animal animal) {
         animals.add(animal);
     }
 
     public void deleteAnimal(Animal animal) {
         animals.remove(animal);
+    }
+
+    public void deleteAnimalWithAnimalName(String animalName) {
+       // Animal deletedAnimalName = animals.stream().filter(el -> el.animalName().equals(animalName)).findFirst().orElseThrow();
+        List<Animal> deletedAnimalNames = animals.stream().filter(el -> el.animalName().equals(animalName)).collect(Collectors.toList());
+       // animals.removeAll(deletedAnimalNames);
+        deletedAnimalNames.forEach(animalToDelete -> animals.remove(animalToDelete));
+       // animals.remove(deletedAnimalName);
     }
 
 }
