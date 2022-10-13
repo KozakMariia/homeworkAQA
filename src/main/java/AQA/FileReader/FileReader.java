@@ -23,11 +23,14 @@ import java.util.stream.Collectors;
 
 public class FileReader {
 
+    private final String filePath;
     public String fileContents;
-
-
+    
+    public FileReader(String filePath) {
+        this.filePath = filePath;
+    }
+    
     public String scanFile() {
-        String filePath = "/Users/m.kozak/JavaHistory.txt";
 
         try (FileInputStream inputStream = new FileInputStream(filePath)) {
             fileContents = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
