@@ -9,8 +9,7 @@ public class Rock extends SongInfo {
 
     @Override
     public String songName() {
-        String songName = "Whisky";
-        return songName;
+        return "Whisky";
     }
 
 }
