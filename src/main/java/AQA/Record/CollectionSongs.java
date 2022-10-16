@@ -2,6 +2,7 @@ package AQA.Record;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CollectionSongs {
@@ -32,11 +33,10 @@ public class CollectionSongs {
                 .collect(Collectors.toList());
     }
 
-    public List<String> songsNames() {
+    public Set<String> songsNames() {
         return songs.stream()
                 .map(el->el.songName())
-                .distinct()
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 
 }
