@@ -6,36 +6,35 @@ import java.util.stream.Collectors;
 
 public class Proposal {
 
-    public List<TicketInfo> ticketInfo;
+    public List<Ticket> tickets;
 
-    public Proposal(TicketInfo... ticketInfo) {
-        this.ticketInfo = List.of(ticketInfo);
+    public Proposal(Ticket... ticketInfo) {
+        this.tickets = List.of(ticketInfo);
     }
 
     public List<String> collectionTickets() {
-        return ticketInfo.stream()
-                .map(el -> el.ticketName())
+        return tickets.stream()
+                .map(el -> el.getTicketName())
                 .collect(Collectors.toList());
     }
 
     public List<String> getSortedTicketsByDay() {
-        return ticketInfo.stream()
-                .sorted(Comparator.comparingInt(TicketInfo::getDay))
-                .map(el -> el.ticketName())
+        return tickets.stream()
+                .sorted(Comparator.comparingInt(Ticket::getDay))
+                .map(el -> el.getTicketName())
                 .collect(Collectors.toList());
     }
 
     public List<String> getSortedTicketsByEat() {
-        return ticketInfo.stream()
-                .sorted(Comparator.comparingInt(TicketInfo::getEatCount))
-                .map(el -> el.ticketName())
+        return tickets.stream()
+                .sorted(Comparator.comparingInt(Ticket::getEatCount))
+                .map(el -> el.getTicketName())
                 .collect(Collectors.toList());
     }
 
-    public List<String> getFilterByVehicle(String nameVehicle) {
-        return ticketInfo.stream()
-                .filter(el->el.getVehicle().equals(nameVehicle))
-                .map(el->el.getVehicle()) //вивести всю інфу про відфільтровані обєкти
+    public List<Ticket> getFilterByVehicle(String nameVehicle) {
+        return tickets.stream()
+                .filter(el -> el.getVehicle().equals(nameVehicle))
                 .collect(Collectors.toList());
     }
 
