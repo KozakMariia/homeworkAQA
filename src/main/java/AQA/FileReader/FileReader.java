@@ -14,6 +14,7 @@ package AQA.FileReader;
  */
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,11 +26,11 @@ public class FileReader {
 
     private final String filePath;
     public String fileContents;
-    
+
     public FileReader(String filePath) {
         this.filePath = filePath;
     }
-    
+
     public String scanFile() {
 
         try (FileInputStream inputStream = new FileInputStream(filePath)) {
@@ -42,17 +43,13 @@ public class FileReader {
     }
 
     public long getWordCount() {
-        long count = fileContents.lines()
-                .map(line -> line.split("[-#$%^&!?,.0-9\\s]+"))
-                .flatMap(Arrays::stream)
+        return Arrays.stream(fileContents.split("[-#$%^&!?,.0-9\\s]+"))
                 .count();
-        System.out.println(count);
-        return count;
     }
 
     public String getWordWithFirstC() {
         return String.valueOf(Arrays.stream(fileContents.split("[-#$%^&!?,.0-9\\s]+"))
-                .filter(s -> s.startsWith("c"))
+                .filter(el -> StringUtils.startsWithIgnoreCase(el, "c"))
                 .collect(Collectors.toList()));
     }
 
@@ -100,3 +97,4 @@ public class FileReader {
     }
 
 }
+

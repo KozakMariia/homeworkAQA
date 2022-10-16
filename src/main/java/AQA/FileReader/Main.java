@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FileReader fileReader = new FileReader("/Users/m.kozak/JavaHistory.txt");
         fileReader.scanFile();
-        fileReader.getWordCount();
+        System.out.println(fileReader.getWordCount());
         System.out.println(fileReader.getWordWithFirstC());
         System.out.println(fileReader.spaceCount());
         System.out.println(fileReader.getNumber());
