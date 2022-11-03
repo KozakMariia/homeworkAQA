@@ -8,7 +8,7 @@ public class Main {
         FileReader fileReader = new FileReader("/Users/m.kozak/JavaHistory.txt");
         fileReader.scanFile();
         System.out.println(fileReader.getWordCount());
-        System.out.println(fileReader.getWordWithFirstC());
+        System.out.println(fileReader.getWordWithFirstC("c"));
         System.out.println(fileReader.spaceCount());
         System.out.println(fileReader.getNumber());
         System.out.println(fileReader.getTwelfSortedWords());
