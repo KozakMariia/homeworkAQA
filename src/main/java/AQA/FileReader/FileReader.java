@@ -39,6 +39,7 @@ public class FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return fileContents;
     }
 
