@@ -2,14 +2,16 @@ package AQA.Record;
 
 public class Rock extends SongInfo {
 
-    public Rock (double duration, String author) {
+    private final String songName;
+
+    public Rock (double duration, String autho, String songName) {
         super.duration = duration;
         super.author = author;
+        this.songName = songName;
     }
 
     @Override
     public String songName() {
-        String songName = "Whisky";
         return songName;
     }
 
