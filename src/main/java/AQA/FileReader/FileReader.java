@@ -47,9 +47,9 @@ public class FileReader {
                 .count();
     }
 
-    public String getWordWithFirstC() {
+    public String getWordWithFirstC(String letter) {
         return String.valueOf(Arrays.stream(fileContents.split("[-#$%^&!?,.0-9\\s]+"))
-                .filter(el -> StringUtils.startsWithIgnoreCase(el, "c"))
+                .filter(el -> StringUtils.startsWithIgnoreCase(el, letter))
                 .collect(Collectors.toList()));
     }
 
